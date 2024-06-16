@@ -11,7 +11,7 @@ from pydantic import ValidationError
 from pydantic.alias_generators import to_snake
 
 
-class StdMetricsCalculatorConfigShape(MetricsCalculatorConfigShape):
+class StdProxyMetricsCalculatorConfigShape(MetricsCalculatorConfigShape):
     cmd: str
     preprocess_keys: bool = False
 
@@ -26,9 +26,9 @@ def dict_to_snake_keys[T: dict[str, Any]](data: T) -> T:
     return {to_snake(k): dict_to_snake_keys(v) for k, v in data.items()}
 
 
-class StdMetricsCalculator(
-    MetricsCalculator[StdMetricsCalculatorConfigShape],
-    config_shape=StdMetricsCalculatorConfigShape,
+class StdProxyMetricsCalculator(
+    MetricsCalculator[StdProxyMetricsCalculatorConfigShape],
+    config_shape=StdProxyMetricsCalculatorConfigShape,
 ):
     async def calculate(self) -> TreeMetrics:
         proc = await asyncio.create_subprocess_shell(

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "std_metrics_calculator"
+name = "std_proxy_metrics_calculator"
 version = "0.1.0"
 description = ""
 authors = ["Alex Pirogov <pirogovalexandr00@mail.ru>"]
@@ -44,4 +44,4 @@ known_first_party = ["."]
 
 
 [tool.poetry.plugins."ucma.metrics_calculator.plugin"]
-export = "std_metrics_calculator.calculator:StdMetricsCalculator"
+export = "std_proxy_metrics_calculator.calculator:StdProxyMetricsCalculator"
